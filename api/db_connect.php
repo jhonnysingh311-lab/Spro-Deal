@@ -4,7 +4,7 @@
 $host = 'sql208.ezyro.com';
 $db   = 'ezyro_41322715_sproddeal';
 $user = 'ezyro_41322715';
-$pass = 'U5w3bJm12025'; // Need to ask user for this
+$pass = 'e6b23510f984ea50'; // User provided password
 $port = '3306';
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4";
