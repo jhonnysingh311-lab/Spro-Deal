@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spro Deal - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+    <style>
+        body { padding: 0; margin: 0; background: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .spro-header {
+            background-color: #27d027;
+            color: white;
+            text-align: center;
+            padding: 40px 20px 60px;
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+            position: relative;
+        }
+        .spro-header h3 { margin: 0; font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+        .spro-header img { width: 55px; height: 55px; margin-bottom: 15px; object-fit: contain; filter: brightness(0) invert(1); }
+        .spro-header p { margin: 0; font-size: 16px; font-weight: 400; }
+
+        .spro-form-container {
+            padding: 40px 25px 30px;
+        }
+        .spro-title {
+            text-align: center;
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 35px;
+            letter-spacing: 0.5px;
+            color: #222;
+        }
+        .spro-title-highlight {
+            border-bottom: 3px solid #27d027;
+            padding-bottom: 2px;
+        }
+        .spro-form-group {
+            margin-bottom: 22px;
+        }
+        .spro-label {
+            display: block;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .spro-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 0 15px;
+            height: 52px;
+        }
+        .spro-prefix {
+            color: #333;
+            font-weight: 500;
+            margin-right: 10px;
+            font-size: 15px;
+        }
+        .spro-input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 15px;
+            height: 100%;
+            background: transparent;
+            color: #333;
+        }
+        .spro-input::placeholder { color: #bbb; }
+        .spro-eye {
+            color: #bbb;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .spro-btn {
+            background-color: #a9a9a9;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            width: 100%;
+            height: 54px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .spro-btn.active {
+            background-color: #27d027;
+        }
+        
+        .spro-terms {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #888;
+        }
+        .spro-check {
+            color: white;
+            background-color: #27d027;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        .spro-terms a {
+            color: #27d027;
+            text-decoration: none;
+            margin-left: 4px;
+        }
+        .spro-create {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .spro-create a {
+            color: #27d027;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        #error-msg {
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="spro-header">
+        <h3>Spro Deal</h3>
+        <img src="logo.jpg" alt="Spro Deal Logo">
+        <p>A stable and profitable platform</p>
+    </div>
+
+    <div class="spro-form-container">
+        <div class="spro-title">
+            SIGN <span class="spro-title-highlight">IN TO SPRO</span> DEAL
+        </div>
+
+        <div id="error-msg"></div>
+
+        <form id="loginForm">
+            <div class="spro-form-group">
+                <label class="spro-label">Phone</label>
+                <div class="spro-input-wrapper">
+                    <span class="spro-prefix">+91</span>
+                    <input type="tel" id="phone" class="spro-input" placeholder="Please enter phone number" required pattern="[0-9]{10}" maxlength="10">
+                </div>
+            </div>
+
+            <div class="spro-form-group">
+                <label class="spro-label">Password</label>
+                <div class="spro-input-wrapper">
+                    <input type="password" id="password" class="spro-input" placeholder="Please enter password" required>
+                    <span class="spro-eye" id="eyeIcon" onclick="togglePassword('password')">
+                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                    </span>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="spro-btn" disabled>SIGN IN</button>
+        </form>
+
+        <div class="spro-terms">
+            <span class="spro-check">✓</span>
+            By logging in you agree to our <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="spro-create">
+            <a href="#">create new account?</a>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            const eyeIcon = document.getElementById('eyeIcon');
+            if (input.type === "password") {
+                input.type = "text";
+                eyeIcon.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>';
+            } else {
+                input.type = "password";
+                eyeIcon.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>';
+            }
+        }
+
+        const phoneInput = document.getElementById('phone');
+        const passInput = document.getElementById('password');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function checkInputs() {
+            if (phoneInput.value.length === 10 && passInput.value.length > 0) {
+                submitBtn.classList.add('active');
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.classList.remove('active');
+                submitBtn.disabled = true;
+            }
+        }
+
+        phoneInput.addEventListener('input', checkInputs);
+        passInput.addEventListener('input', checkInputs);
+
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('error-msg');
+
+            if (phone.length !== 10) {
+                errorMsg.textContent = "Phone number must be 10 digits.";
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            submitBtn.innerHTML = "Logging in...";
+            submitBtn.disabled = true;
+            errorMsg.style.display = 'none';
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/login.php`, {
+                    method: 'POST',
+                    body: JSON.stringify({ phone, password })
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    localStorage.setItem('ezpay_user_id', result.userId);
+                    window.location.href = 'verification.html';
+                } else {
+                    errorMsg.textContent = result.error || "Login failed";
+                    errorMsg.style.display = 'block';
+                    submitBtn.innerHTML = "SIGN IN";
+                    submitBtn.disabled = false;
+                }
+            } catch (err) {
+                console.error("Fetch error:", err);
+                errorMsg.textContent = `Connection error: ${err.message || "Unknown error"}`;
+                errorMsg.style.display = 'block';
+                submitBtn.innerHTML = "SIGN IN";
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
